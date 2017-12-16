@@ -1,13 +1,18 @@
 language: node_js
+
 sudo: false
+
 node_js:
 - '4'
+
 branches:
   only:
   - master
+  
 cache:
   directories:
   - node_modules
+
 before_install:
 - openssl aes-256-cbc -K $encrypted_2f598e748b08_key -iv $encrypted_2f598e748b08_iv
   -in id_rsa_travis.enc -out id_rsa_travis -d
@@ -20,6 +25,11 @@ before_install:
 install:
 - npm install hexo-cli -g
 - npm install
+- npm install hexo-generator-feed --save
+- npm install hexo-generator-sitemap --save
 - npm install hexo-renderer-scss --save
+- npm install hexo-deployer-git --save
 script:
-- npm run deploy
+- hexo clean
+- hexo g
+- hexo d
