@@ -29,8 +29,8 @@ menu:
 # theme styling
 # color: Default | Mint Green | Cobalt Blue | Hot Pink | Dark Violet
 theme:
-  color: Dark Violet
-  toc: true
+  color: Default
+  toc: false
   fancybox: false
 
 copyright:
