@@ -26,6 +26,11 @@ install:
 - npm install hexo-generator-sitemap --save
 - npm install hexo-renderer-scss --save
 - npm install hexo-deployer-git --save
+- npm install gulp --save
+- npm install gulp-htmlclean --save
+- npm install gulp-htmlmin --save
+- npm install gulp-minify-css --save
+- npm install gulp-uglify --save
 
 script:
 - hexo clean
