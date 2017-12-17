@@ -12,6 +12,7 @@ branches:
 cache:
   directories:
   - node_modules
+  - ~/.npm
 
 # S: Build Lifecycle
 before_install:
@@ -29,6 +30,7 @@ install:
 script:
 - hexo clean
 - hexo g
+- gulp
 
 after_script:
   - cd ./public
