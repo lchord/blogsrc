@@ -31,7 +31,7 @@
     </header>
 
     {# Post TOC #}
-    {% include "../_partial/_post/toc.swig" %}
+    {#  {% include "../_partial/_post/toc.swig" %}  #}
 
     <div class="post-content">
       {% if is_home() %}
