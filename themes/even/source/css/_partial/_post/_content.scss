@@ -23,6 +23,21 @@
     }
   }
 
+  .header-anchor {
+    visibility: hidden;
+    margin-left: -0.8em;
+    padding-right: 5px;
+    color: #c05b4d;
+  }
+
+  h1:hover .header-anchor, h2:hover .header-anchor, h3:hover .header-anchor, h4:hover .header-anchor, h5:hover .header-anchor, h6:hover .header-anchor {
+    visibility: visible;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    word-break: break-all;
+  }
+
   a {
     color: $theme-color;
     word-break: break-all;
