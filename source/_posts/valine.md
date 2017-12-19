@@ -11,7 +11,7 @@ date: 2017.12.17
 接下来是具体过程。首先在leancloud[\[5\]][5]里面新建一个应用，得到appid和appkey备用。  
 ### _config.yml
 在主题_config.yml文件Third Party Services Settings这一大项最后添加上下面的代码，注意将相应的内容换成自己的信息。  
-```
+```yaml
 # Valine comment https://valine.js.org
 valine:
   appid:  # your leancloud appid
