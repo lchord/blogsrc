@@ -24,9 +24,9 @@ install:
 - npm install
 - npm install hexo-generator-feed --save
 - npm install hexo-generator-sitemap --save
-- npm install hexo-renderer-scss --save
-- npm un hexo-renderer-marked --save
-- npm i hexo-renderer-markdown-it --save
+# - npm install hexo-renderer-scss --save
+# - npm un hexo-renderer-marked --save
+# - npm i hexo-renderer-markdown-it --save
 - npm install hexo-deployer-git --save
 - npm install gulp --save
 - npm install gulp-htmlclean --save
