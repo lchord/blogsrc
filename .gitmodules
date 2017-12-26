@@ -1,0 +1,3 @@
+[submodule "themes/haku"]
+	path = themes/haku
+	url = https://github.com/lchord/haku
