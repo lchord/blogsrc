@@ -24,6 +24,7 @@ install:
 - npm install
 - npm install hexo-generator-feed --save
 - npm install hexo-generator-sitemap --save
+- npm i hexo-renderer-marked --save
 # - npm install hexo-renderer-scss --save
 # - npm un hexo-renderer-marked --save
 # - npm i hexo-renderer-markdown-it --save
