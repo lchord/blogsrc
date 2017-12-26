@@ -1,0 +1,13 @@
+<%- partial('_partial/head') %>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <%- partial('_partial/header', null, {cache: !config.relative_link}) %>
+      <main id="content">
+        <section id="main"><%- body %></section>
+      </main>
+      <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
+    </div>
+  </div>
+</body>
+</html>

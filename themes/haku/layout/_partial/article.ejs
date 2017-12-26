@@ -1,0 +1,31 @@
+<article id="<%= post.layout %>-<%= post.slug %>" class="article article-type-<%= post.layout %>" itemscope itemprop="blogPost">
+    
+    <div class="article-title">
+    <% if (post.link || post.title){ %>
+        <%- partial('post/title', {class_name: 'article-title-link'}) %>
+    <% } %>
+    </div>
+    <div class="article-meta">
+      <%- partial('post/date', {class_name: 'article-date', date_format: 'll'}) %>
+    </div>
+    <div class="article-content" itemprop="articleBody">
+      <% if (post.excerpt && index){ %>
+        <%- post.excerpt %>
+        <% if (theme.excerpt_link){ %>
+          <p class="article-more-link">
+            <a class="more-link-button" href="<%- url_for(post.path) %>#more"><%= theme.excerpt_link %></a>
+          </p>
+        <% } %>
+      <% } else { %>
+        <%- post.content %>
+      <% } %>
+    </div>
+    <footer class="article-footer">
+    <% if (!index){ %>
+    <%- partial('post/tag') %>
+    <%- partial('post/nav') %>
+  <% } %>
+</footer>
+</article>
+
+<%- partial('comment/comment') %>

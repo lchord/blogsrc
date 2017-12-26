@@ -1,0 +1,23 @@
+<!-- TO DO -->
+<!-- TO CHECK -->
+
+<header id="header">
+  <div class="hdimg">
+      <h1 class="title"><%= config.title %></h1>
+      <% if (theme.subtitle){ %>
+      <p class="subtitle"><%= theme.subtitle %></p>
+      <% } %>
+  </div>
+  <nav id="main-nav">
+    <% for (var i in theme.menu){ %>
+      <a class="main-nav-link" href="<%- url_for(theme.menu[i]) %>"><%= i %></a>
+    <% } %>
+  </nav>
+  <!-- 
+  <nav id="sub-nav">
+    <% if (theme.rss){ %>
+      <a id="nav-rss-link" class="nav-icon" href="<%- theme.rss %>" title="RSS Feed">RSS</a>
+    <% } %>
+  </nav>
+  -->
+</header>
