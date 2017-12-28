@@ -20,11 +20,11 @@ before_install:
 - git config --global user.email 569187749@qq.com
 
 install:
-- npm install hexo-cli -g
-- npm install
-- npm install hexo-generator-feed --save
-- npm install hexo-generator-sitemap --save
-- npm i hexo-renderer-marked --save
+# - npm install hexo-cli -g
+# - npm install
+# - npm install hexo-generator-feed --save
+# - npm install hexo-generator-sitemap --save
+# - npm i hexo-renderer-marked --save
 - npm install gulp --save
 - npm install gulp-htmlclean --save
 - npm install gulp-htmlmin --save
