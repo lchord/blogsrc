@@ -25,9 +25,14 @@
   <% } %>
   <% if (page.total > 1){ %>
     <nav id="page-nav">
+      <% if (theme.fontawesome_url){ %>
+        <% var prev_text = "<i class='fa fa-angle-left' aria-hidden='true'></i>";var next_text = "<i class='fa fa-angle-right' aria-hidden='true'></i>"%>
+      <% } else { %>
+        <% var prev_text = "<";var next_text = ">"%>
+      <% } %>
       <%- paginator({
-        prev_text: '<i class="fa fa-angle-left" aria-hidden="true"></i>',
-        next_text: '<i class="fa fa-angle-right" aria-hidden="true"></i>',
+        prev_text: prev_text,
+        next_text: next_text,
         end_size: true,
         mid_size: 2
       }) %>

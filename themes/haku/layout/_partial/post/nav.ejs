@@ -3,18 +3,20 @@
   <% if (post.prev){ %>
     <a href="<%- url_for(post.prev.path) %>" id="article-nav-newer" class="article-nav-item">
       <i class="fa fa-angle-left" aria-hidden="true"></i>
-      <span class="article-nav-title">
+      <span class="article-nav-title article-nav-full">
         <% if (post.prev.title){ %>
           <%= post.prev.title %>
         <% } else { %>
           (no title)
         <% } %>
       </span>
+      <sapn class="article-nav-title article-nav-mobile">PREV</span>
     </a>
   <% } %>
   <% if (post.next){ %>
     <a href="<%- url_for(post.next.path) %>" id="article-nav-older" class="article-nav-item">
-      <span class="article-nav-title"><%= post.next.title %></span>
+      <span class="article-nav-title article-nav-full"><%= post.next.title %></span>
+      <span class="article-nav-title article-nav-mobile">NEXT</span>
       <i class="fa fa-angle-right" aria-hidden="true"></i>
     </a>
   <% } %>
