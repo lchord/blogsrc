@@ -29,11 +29,11 @@ install:
 # - npm un hexo-renderer-marked --save
 # - npm i hexo-renderer-markdown-it --save
 # - npm install hexo-deployer-git --save
-# - npm install gulp --save
-# - npm install gulp-htmlclean --save
-# - npm install gulp-htmlmin --save
-# - npm install gulp-minify-css --save
-# - npm install gulp-uglify --save
+- npm install gulp --save
+- npm install gulp-htmlclean --save
+- npm install gulp-htmlmin --save
+- npm install gulp-minify-css --save
+- npm install gulp-uglify --save
 
 script:
 - hexo clean
