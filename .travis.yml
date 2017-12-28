@@ -28,7 +28,7 @@ install:
 - npm install gulp --save
 - npm install gulp-htmlclean --save
 - npm install gulp-htmlmin --save
-- npm install gulp-clean-css --save
+- npm install gulp-minify-css --save
 - npm install gulp-uglify --save
 
 script:
