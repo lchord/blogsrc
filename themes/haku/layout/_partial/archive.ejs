@@ -3,26 +3,54 @@
       <%- partial('article', {post: post, index: true}) %>
     <% }) %>
   <% } else { %>
-    <% var last; %>
-    <% page.posts.each(function(post, i){ %>
-      <% var year = post.date.year(); %>
-      <% if (last != year){ %>
-        <% if (last != null){ %>
-          </div></section>
+    <% if (page.archive){ %>
+
+      <% var last; %>
+      <% page.posts.each(function(post, i){ %>
+        <% var year = post.date.year(); %>
+        <% if (last != year){ %>
+          <% if (last != null){ %>
+            </div></section>
+          <% } %>
+          <% last = year; %>
+          <section class="archives-wrap">
+            <div class="archive-year-wrap">
+              <a href="<%- url_for(config.archive_dir + '/' + year) %>" class="archive-year"><%= year %></a>
+            </div>
+            <div class="archives">
         <% } %>
-        <% last = year; %>
-        <section class="archives-wrap">
-          <div class="archive-year-wrap">
-            <a href="<%- url_for(config.archive_dir + '/' + year) %>" class="archive-year"><%= year %></a>
-          </div>
-          <div class="archives">
+        <%- partial('archive-post', {post: post, even: i % 2 == 0}) %>
+      <% }) %>
+      <% if (page.posts.length){ %>
+        </div></section>
       <% } %>
-      <%- partial('archive-post', {post: post, even: i % 2 == 0}) %>
-    <% }) %>
-    <% if (page.posts.length){ %>
-      </div></section>
+
+    <% } else if (page.tag){ %>
+    <section class="archives-wrap">
+    <div class="archive-tag-title">
+      #<%= page.tag %>
+    </div>
+      <div class="archives">
+          <% page.posts.each(function(post, i){ %>
+            <%- partial('archive-post', {post: post, even: i % 2 == 0}) %>
+          <% }) %>
+      </div>
+    </section>
+    <% } else if (page.category){ %>
+    <section class="archives-wrap">
+    <div class="archive-category-title">
+    <%= page.category %>
+    </div>
+      <div class="archives">
+          <% page.posts.each(function(post, i){ %>
+            <%- partial('archive-post', {post: post, even: i % 2 == 0}) %>
+          <% }) %>
+      </div>
+    </section>
     <% } %>
+
   <% } %>
+
   <% if (page.total > 1){ %>
     <nav id="page-nav">
       <% if (theme.fontawesome_url){ %>
