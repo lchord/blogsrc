@@ -24,10 +24,16 @@
   <% if (theme.rss){ %>
     <link rel="alternate" href="<%- theme.rss %>" title="<%= config.title %>" type="application/atom+xml">
   <% } %>
+
   <% if (theme.favicon){ %>
     <link rel="icon" href="<%- theme.favicon %>">
   <% } %>
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-  <link href="<%- theme.fontawesome_url %>" rel="stylesheet">
+  
+  <link href="https://fonts.googleapis.com/css?family=Lato|Sacramento" rel="stylesheet">
+
+  <% if (theme.fontawesome_url){ %>
+    <link href="<%- theme.fontawesome_url %>" rel="stylesheet">
+  <% } %>
+
   <%- css('css/style') %>
 </head>
