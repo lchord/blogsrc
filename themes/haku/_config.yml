@@ -13,5 +13,10 @@ excerpt_link: Read More
 # Disqus
 disqus_shortname: lchord
 
+# baidu site verification content
+baidu_site: gK8IeyD9Be
+# baidu tongji (the string after "hm.js?")
+baidu_tongji: 60ffb2636992b668894d3a26aa7d4153
+
 # fontawesome_url
 fontawesome_url: https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css
