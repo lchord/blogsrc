@@ -19,7 +19,7 @@
             </div>
             <div class="archives">
         <% } %>
-        <%- partial('archive-post', {post: post, even: i % 2 == 0}) %>
+        <%- partial('archive-list', {post: post, even: i % 2 == 0}) %>
       <% }) %>
       <% if (page.posts.length){ %>
         </div></section>
@@ -32,7 +32,7 @@
     </div>
       <div class="archives">
           <% page.posts.each(function(post, i){ %>
-            <%- partial('archive-post', {post: post, even: i % 2 == 0}) %>
+            <%- partial('archive-list', {post: post, even: i % 2 == 0}) %>
           <% }) %>
       </div>
     </section>
@@ -43,7 +43,7 @@
     </div>
       <div class="archives">
           <% page.posts.each(function(post, i){ %>
-            <%- partial('archive-post', {post: post, even: i % 2 == 0}) %>
+            <%- partial('archive-list', {post: post, even: i % 2 == 0}) %>
           <% }) %>
       </div>
     </section>

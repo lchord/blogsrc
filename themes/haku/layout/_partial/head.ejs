@@ -26,6 +26,10 @@
     <meta name="baidu-site-verification" content="<%= theme.baidu_site %>" />
   <% } %>
 
+  <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
+  <![endif]-->
+  
   <% if (theme.rss){ %>
     <link rel="alternate" href="<%- theme.rss %>" title="<%= config.title %>" type="application/atom+xml">
   <% } %>
@@ -33,8 +37,6 @@
   <% if (theme.favicon){ %>
     <link rel="icon" href="<%- theme.favicon %>">
   <% } %>
-  
-  <link href="https://fonts.googleapis.com/css?family=Lato|Sacramento" rel="stylesheet">
 
   <% if (theme.fontawesome_url){ %>
     <link href="<%- theme.fontawesome_url %>" rel="stylesheet">
