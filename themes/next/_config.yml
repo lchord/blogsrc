@@ -474,10 +474,10 @@ pangu: false
 
 # Disqus
 disqus:
-  enable: false
-  shortname:
+  enable: true
+  shortname: lchord
   count: true
-  lazyload: false
+  lazyload: true
 
 # changyan
 changyan:
@@ -767,7 +767,7 @@ reading_progress:
 
 # Use velocity to animate everything.
 motion:
-  enable: true
+  enable: false
   async: false
   transition:
     # Transition variants:
