@@ -1,0 +1,40 @@
+  <% if (index){ %>
+    <article id="<%= post.layout %>-<%= post.slug %>" class="index-article article-type-<%= post.layout %>" itemscope itemprop="blogPost">
+      <div class="article-title">
+        <% if (post.link || post.title){ %>
+            <%- partial('post/title', {class_name: 'article-title-link'}) %>
+        <% } %>
+      </div>
+      <div class="article-meta">
+        <%- partial('post/date', {class_name: 'article-date', date_format: 'YYYY-MM-DD'}) %>
+        <%- partial('post/category') %>
+      </div>
+      <div class="article-content" itemprop="articleBody">
+        <p>
+              <%- truncate(strip_html(post.content), {length: 100, omission: '...'}) %>
+        </p>
+      </div>
+    </article>
+
+  <% } else { %>
+    <article id="<%= post.layout %>-<%= post.slug %>" class="article article-type-<%= post.layout %>" itemscope itemprop="blogPost">
+    <div class="article-title">
+    <% if (post.link || post.title){ %>
+        <%- partial('post/title', {class_name: 'article-title-link'}) %>
+    <% } %>
+    </div>
+    <div class="article-meta">
+      <%- partial('post/date', {class_name: 'article-date', date_format: 'YYYY-MM-DD'}) %>
+      <%- partial('post/category') %>
+    </div>
+    <div class="article-content" itemprop="articleBody">
+        <%- post.content %>
+    </div>
+    <footer class="article-footer">
+    <%- partial('post/tag') %>
+    <%- partial('post/nav') %>
+</footer>
+</article>
+<%- partial('comments/comments') %>
+
+<% } %>

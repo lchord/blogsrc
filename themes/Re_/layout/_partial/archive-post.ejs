@@ -1,0 +1,14 @@
+<article class="archive-article archive-type-<%= post.layout %>">
+    <div class="archive-article-inner">
+      <header class="archive-article-header">
+      <% if (page.archive){ %>
+        <%- partial('post/date', {class_name: 'archive-article-date', date_format: 'MM-DD'}) %>
+        <%- partial('post/title', {class_name: 'archive-article-title'}) %>
+      <% } else if (page.tag || page.category){ %>  
+        <%- partial('post/date', {class_name: 'archive-article-date-full', date_format: config.date_format}) %>
+        <%- partial('post/title', {class_name: 'archive-article-title'}) %>
+      <% } %>
+        
+      </header>
+    </div>
+  </article>

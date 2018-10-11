@@ -1,0 +1,13 @@
+<!-- TO DO -->
+<!-- TO CHECK -->
+
+<header id="header">
+  <div class="main-title">
+      <h1 class="title"><%= config.title %></h1>
+  </div>
+  <nav id="main-nav">
+    <% for (var i in theme.menu){ %>
+      <a class="main-nav-link" href="<%- url_for(theme.menu[i]) %>"><%= i %></a>
+    <% } %>
+  </nav>
+</header>
