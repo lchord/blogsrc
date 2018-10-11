@@ -1,3 +1,0 @@
-Re_
----
-Simplest
