@@ -30,6 +30,7 @@ install:
 - npm install gulp-htmlmin --save
 - npm install gulp-minify-css --save
 - npm install gulp-uglify --save
+- npm install --save hexo-renderer-jade hexo-browsersync hexo-generator-archive hexo-renderer-scss
 
 script:
 - hexo clean
