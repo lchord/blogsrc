@@ -33,6 +33,7 @@ install:
 - npm install --save hexo-renderer-jade hexo-browsersync hexo-generator-archive hexo-renderer-scss
 
 script:
+- git clone https://github.com/lchord/find.git themes/find
 - hexo clean
 - hexo g
 - gulp
