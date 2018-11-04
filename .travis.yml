@@ -39,7 +39,7 @@ after_script:
 - git add .
 - git commit -m "Travis"
 - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
-- git push --force --quiet "lchord@144.34.161.145/home/lchord/lchord.git" master:master
+- git push --force --quiet "lchord@144.34.161.145:/home/lchord/lchord.git" master:master
 env:
   global:
   - GH_REF: github.com/lchord/lchord.github.io.git
