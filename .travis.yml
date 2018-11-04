@@ -27,7 +27,7 @@ install:
 - npm install gulp-uglify --save
 - npm install --save hexo-renderer-jade hexo-browsersync hexo-generator-archive hexo-renderer-scss
 addons:
-  ssh_known_hosts: 144.34.161.145:${port}
+  ssh_known_hosts: 144.34.161.145:${vps_port}
 script:
 - git clone https://github.com/lchord/find.git themes/find
 - hexo clean
@@ -39,8 +39,7 @@ after_script:
 - git add .
 - git commit -m "Travis"
 - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
-- git push --force --quiet "lchord@144.34.161.145:/home/lchord/lchord.git" master:master
+- git push --force --quiet "ssh://lchord@144.34.161.145:${vps_port}/home/lchord/lchord.git" master:master
 env:
   global:
   - GH_REF: github.com/lchord/lchord.github.io.git
-  - secure: vzG2X2nrkbiU9UXmX2nHZ2ArG3fbNNRsgb44xkyj37DMqsxm9V8Pe55z7r5lGn07fkVZSmsNI8pZbv/o0+vXXZSv+LP58+DxNoOWypz/kDjblImnhMUoG37vh7ljeT2yXaAnhIsaXcnW9vLSSvJgAwWuJGXNc4/nmifxD4fFlpJG3a+D9IAcfMQgoqSu866QxMc5bN13tYhcBA+QO3mBjCV16FYGL9ppGl0wZUgYmmdnas5gt/d3BmVU87CYBR6HJXH2fHuyvdHv6hzUbWZwPvoCFN0WLsh7ZDdjs/C9cGj/Ca0IeKOfeQI8vw1iBz9Q6IOgIojfFdom6VNWs9FM80yy1cL7N89FgPz5YIvB0pVO5LdwFs9IqLRmrP+zuaeHy2+Igqrex2l2wwt4fktZqc7DKGLSBnxTyoZ5U/3Iv0jYdbwpWCQ5j2XYO7OmnZHyARkiWqlHT1cA+sW9BvPlXUeM8zWt3WjCwqfZaqMD9QpmINrFNgQqW1n8lcm8mc6LIgaJ1DT3o6kbWcPrSw+lXM+UCyupTvIg1i4Gx8oI4nH2rdzT8A1kb1VdpKtXnbnfHBCfF3Jf0RQGIa2I5qVLu5pl6fsKy5i9f6vkwK/PwKiW6fJQ4NLqeBDu+QCNa9JfnFM/za80Jcwnc2I0CxVs+9BaMhoAkJsbQbQrMQg4haU=
