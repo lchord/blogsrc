@@ -1,24 +1,19 @@
 language: node_js
-
 sudo: false
-
 node_js:
 - '8'
-
 branches:
   only:
   - master
-
 cache:
   directories:
   - node_modules
-  - ~/.npm
-
-# S: Build Lifecycle
+  - "~/.npm"
 before_install:
+- openssl aes-256-cbc -K $encrypted_5cd844440670_key -iv $encrypted_5cd844440670_iv -in id_rsa.enc -out ~/.ssh/id_rsa -d
+- chmod 600 ~/.ssh/id_rsa
 - git config --global user.name 'lchord'
 - git config --global user.email 569187749@qq.com
-
 install:
 - npm install hexo-cli -g
 - npm install
@@ -31,22 +26,21 @@ install:
 - npm install gulp-minify-css --save
 - npm install gulp-uglify --save
 - npm install --save hexo-renderer-jade hexo-browsersync hexo-generator-archive hexo-renderer-scss
-
+addons:
+  ssh_known_hosts: 144.34.161.145:${secure}
 script:
 - git clone https://github.com/lchord/find.git themes/find
 - hexo clean
 - hexo g
 - gulp
-
 after_script:
-  - cd ./public
-  - git init
-  - git add .
-  - git commit -m "Travis"
-  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
-# E: Build LifeCycle
-
+- cd ./public
+- git init
+- git add .
+- git commit -m "Travis"
+- git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
+- git push --force --quite "git@144.34.161.145/home/git/lchord.git" master:master
 env:
- global:
-   - GH_REF: github.com/lchord/lchord.github.io.git
-
+  global:
+  - GH_REF: github.com/lchord/lchord.github.io.git
+  - secure: vzG2X2nrkbiU9UXmX2nHZ2ArG3fbNNRsgb44xkyj37DMqsxm9V8Pe55z7r5lGn07fkVZSmsNI8pZbv/o0+vXXZSv+LP58+DxNoOWypz/kDjblImnhMUoG37vh7ljeT2yXaAnhIsaXcnW9vLSSvJgAwWuJGXNc4/nmifxD4fFlpJG3a+D9IAcfMQgoqSu866QxMc5bN13tYhcBA+QO3mBjCV16FYGL9ppGl0wZUgYmmdnas5gt/d3BmVU87CYBR6HJXH2fHuyvdHv6hzUbWZwPvoCFN0WLsh7ZDdjs/C9cGj/Ca0IeKOfeQI8vw1iBz9Q6IOgIojfFdom6VNWs9FM80yy1cL7N89FgPz5YIvB0pVO5LdwFs9IqLRmrP+zuaeHy2+Igqrex2l2wwt4fktZqc7DKGLSBnxTyoZ5U/3Iv0jYdbwpWCQ5j2XYO7OmnZHyARkiWqlHT1cA+sW9BvPlXUeM8zWt3WjCwqfZaqMD9QpmINrFNgQqW1n8lcm8mc6LIgaJ1DT3o6kbWcPrSw+lXM+UCyupTvIg1i4Gx8oI4nH2rdzT8A1kb1VdpKtXnbnfHBCfF3Jf0RQGIa2I5qVLu5pl6fsKy5i9f6vkwK/PwKiW6fJQ4NLqeBDu+QCNa9JfnFM/za80Jcwnc2I0CxVs+9BaMhoAkJsbQbQrMQg4haU=
