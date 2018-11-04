@@ -10,7 +10,7 @@ cache:
   - node_modules
   - "~/.npm"
 before_install:
-- openssl aes-256-cbc -K $encrypted_5cd844440670_key -iv $encrypted_5cd844440670_iv -in id_rsa.enc -out ~/.ssh/id_rsa -d
+- openssl aes-256-cbc -K $encrypted_6e315cd7a3b0_key -iv $encrypted_6e315cd7a3b0_iv -in id_rsa.enc -out ~/.ssh/id_rsa -d
 - chmod 600 ~/.ssh/id_rsa
 - git config --global user.name 'lchord'
 - git config --global user.email 569187749@qq.com
@@ -27,7 +27,7 @@ install:
 - npm install gulp-uglify --save
 - npm install --save hexo-renderer-jade hexo-browsersync hexo-generator-archive hexo-renderer-scss
 addons:
-  ssh_known_hosts: 144.34.161.145:${secure}
+  ssh_known_hosts: 144.34.161.145:${port}
 script:
 - git clone https://github.com/lchord/find.git themes/find
 - hexo clean
@@ -39,7 +39,7 @@ after_script:
 - git add .
 - git commit -m "Travis"
 - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
-- git push --force --quite "git@144.34.161.145/home/git/lchord.git" master:master
+- git push --force --quite "lchord@144.34.161.145/home/lchord/lchord.git" master:master
 env:
   global:
   - GH_REF: github.com/lchord/lchord.github.io.git
