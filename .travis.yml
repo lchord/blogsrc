@@ -1,46 +1,43 @@
 language: node_js
 sudo: false
 node_js:
-- '8'
+  - '8'
 branches:
   only:
-  - master
+    - master
 cache:
   directories:
   - node_modules
   - "~/.npm"
 before_install:
-- openssl aes-256-cbc -K $encrypted_6e315cd7a3b0_key -iv $encrypted_6e315cd7a3b0_iv -in id_rsa.enc -out ~/.ssh/id_rsa -d
-- chmod 600 ~/.ssh/id_rsa
-- git config --global user.name 'lchord'
-- git config --global user.email 569187749@qq.com
+  - openssl aes-256-cbc -K $encrypted_569fccfee36e_key -iv $encrypted_569fccfee36e_iv -in secrets.tar.enc -out secrets.tar -d
+  - tar xvf secrets.tar
+  - chmod +x after_install.sh
+  - mv id_rsa ~/.ssh/id_rsa
+  - chmod 600 ~/.ssh/id_rsa
+  - git config --global user.name 'lchord'
+  - git config --global user.email 569187749@qq.com
 install:
-- npm install hexo-cli -g
-- npm install
-- npm install hexo-generator-feed --save
-- npm install hexo-generator-sitemap --save
-- npm i hexo-renderer-marked --save
-- npm install gulp --save
-- npm install gulp-htmlclean --save
-- npm install gulp-htmlmin --save
-- npm install gulp-minify-css --save
-- npm install gulp-uglify --save
-- npm install --save hexo-renderer-jade hexo-browsersync hexo-generator-archive hexo-renderer-scss
+  - npm install hexo-cli -g
+  - npm install
+  - npm install hexo-generator-feed --save
+  - npm install hexo-generator-sitemap --save
+  - npm i hexo-renderer-marked --save
 addons:
   ssh_known_hosts: 
     secure: "hTMcmIWI0FC4B/c4bp/ZjMGGkVDnjIO8Z+KsKoA+8bxd3wfSIH7C9lGPQsc8lMRA+qk6BLc6Rg22B5wSTgrQE6TBh+P+MVT2kGn3UEV6AS8g7k+22lmkKbsE/6aPuE8qkoaO1LKIkzWXAKUnAOI07fwloG68gQgBVzthwsbS6njNz1xbqZvU+6wOgJg7DDQMs0ol8lyRDbCsEnx5sOIpgV+wcc5KLzOISFtW0rXi92zo84UV+AMWeyuVLCkL5Fqxxj5DKuWN7BWDTr6k2NmvBS6hopzd5qVvNqDh4MZWVYx2u3L2RgIZUlaF2o3ZFyxk0qv/LOdTp69CFan8cq3v/PuzP7lP89yhFo7s0XOsxnZVyHxt0bNfRJOnnvjx+HLXHRbm1h2G9D98MZLtKlBJBCWkgbJQSX0ccT6QWayqInA/xpKJ4Rc6HkMnQBzBNep8ryouesnAlnyeeHWiqWmTnWLK2F+VqfCVTwMhE+elUb2tatpMq+FJIYo2cWXfuJwek59gxXrGvPsEs+dK98LS2nXBVkFabc4iZVZt2DKfI9SA1IKFchB6vx4tf/yt5Edys5i46KOUX2nyqdnDtVYQcXe7I7akdy01thlYOAbsZfdSDsm+J+jG2QXCg41meXO+KiICGpXLGPji7rGXiKI81HkE4I+GsmdbPNAxbHIVABg="
 script:
-- git clone https://github.com/lchord/find.git themes/find
-- hexo clean
-- hexo g
-- gulp
+  - git clone https://github.com/lchord/find.git themes/find
+  - hexo clean
+  - hexo g
 after_script:
-- cd ./public
-- git init
-- git add .
-- git commit -m "Travis"
-- git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
-- git push --force --quiet "ssh://lchord@144.34.161.145:${vps_port}/home/lchord/lchord.git" master:master
+  - ./after_install.sh
+  - cd ./public
+  - git init
+  - git add .
+  - git commit -m "Travis"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
+
 env:
-  global:
-  - GH_REF: github.com/lchord/lchord.github.io.git
+ global:
+   - GH_REF: github.com/lchord/lchord.github.io.git
