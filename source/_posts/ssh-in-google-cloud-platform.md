@@ -21,17 +21,17 @@ Your public key has been saved in gcp-key.pub. # 公钥存入了gcp-key.pub文�
 ...
 ```
 
-这样在当前用户文件夹下的.ssh文件夹中就创建了一对公钥和私钥文件。用编辑器打开gcp-key.pub公钥文件，复制其中的内容备用。
+这样在当前用户文件夹下的`.ssh`文件夹中就创建了一对公钥和私钥文件。用编辑器打开`gcp-key.pub`公钥文件，复制其中的内容备用。
 
 ## Google Cloud Platform
 
-进入实例，打开提供的命令行工具。进入用户文件夹下的.ssh文件夹。
+进入实例，打开提供的命令行工具。进入用户文件夹下的`.ssh`文件夹。
 
 ```
 cd ~/.ssh
 ```
 
-其中有一个名为authorized_keys的文件。内容大致如下：
+其中有一个名为`authorized_keys`的文件。内容大致如下：
 
 ```
 # Added by Google
@@ -56,9 +56,7 @@ ssh-rsa .......... # 在以前内容后面粘贴自己公钥文件的内容
 
 ## 本地使用SSH工具连接
 
-我使用的是mobaXterm。点击工具栏中的Session -> SSH。在Basic SSH settings中Remote host填写实例的外部ip，这里可以不指定Specify username，端口填写自己的SSH端口，默认22。 
-之后点击下面的Advanced SSH settings，勾选Use private key，输入或者浏览选择之前生成的私钥文件，最后OK确认。  
-左侧单击Sessions，连接时，选择我们刚才设置的ip地址，双击进入。Shell显示如下：
+我使用的是mobaXterm。点击工具栏中的Session -> SSH。在Basic SSH settings中Remote host填写实例的外部ip，这里可以不指定Specify username，端口填写自己的SSH端口，默认22。之后点击下面的Advanced SSH settings，勾选Use private key，输入或者浏览选择之前生成的私钥文件，最后OK确认。左侧单击Sessions，连接时，选择我们刚才设置的ip地址，双击进入。Shell显示如下：
 
 ```
 Passphrase for OpenSSH private key: # 输入设置的passphrase
