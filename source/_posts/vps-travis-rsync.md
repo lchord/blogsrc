@@ -9,7 +9,15 @@ category: 笔记
 
 ## 准备
 
-之后会用到`travis`的文件加密功能，该功能不支持直接在Windows系统上操作（known problem），可使用Windows 10上的子系统功能（也可用ssh直接连接VPS进行操作），或者使用macOS，再者使用Linux等。另外，使用`travis`命令需要通过RubyGems安装。
+首先要在Github创建并在Travis-CI中开启存放hexo博客源码的仓库。之后会用到`travis`的文件加密功能，该功能不支持直接在Windows系统上操作（known problem），可使用Windows 10上的子系统功能（也可用ssh直接连接VPS进行操作），或者使用macOS，再者使用Linux等。另外，使用`travis`命令需要通过RubyGems安装。
+
+另外，由于要使用到rsyn要使用到ssh方式，所以也要准备一对私钥和公钥。直接运行：
+
+```
+ssh-keygen
+```
+
+一般来说，这样私钥文件为`～/.ssh/id_rsa`,对应的公钥为`～/.ssh/id_rsa.pub`。这里需要把公钥文件里的内容完整的复制到VPS上用来连接登录rsync的用户的主目录下的`authorized_keys`的文件上。举个栗子：因为rsync同步需要指定用户，我们使用用户名`john`，所以就要把内容粘贴到VPS系统中的`/home/john/.ssh/authorized_keys`中，如果没有这个文件，可以自己创建。
 
 ## 安装
 
@@ -19,7 +27,9 @@ category: 笔记
 sudo apt install ruby ruby-dev # 如果没有安装Ruby，需要先运行这一步
 sudo apt install build-essential
 ```
+来到下载的RubyGems的源码目录，运行`sudo ruby setup.rb`安装。
 
-之后便可以安装RubyGems和Travis
+接着
+
 
 To be continued...
