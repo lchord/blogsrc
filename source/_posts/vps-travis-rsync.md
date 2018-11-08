@@ -57,14 +57,28 @@ rsync -av --delete -e 'ssh -p ${port}' public/ ${username}@${host_ip}:/path/to/s
 
 将脚本保存为`after_script.sh`，并移动到本地操作的博客源码目录。
 
-由于在Travis CI构建过程中，我们是不能操作的，所以需要提前将VPS的ip加入到`known_hosts`中，具体只需在`.travis.yml`中的script段前加入：
+由于在Travis CI构建过程中，我们是不能操作的，所以需要提前将VPS的ip加入到`known_hosts`中，这里包含主机信息，所以进行加密：
+
+```
+travis encrypt ${host_ip}:${port} # 对应的输入主机ip和ssh端口
+
+# 输出信息如下：
+
+Please add the following to your .travis.yml file:
+
+  secure: "xxxxxxxxxxxxxx.............."
+
+```
+
+复制`secure: "..."`，在`.travis.yml`中的script段前加入：
 
 ```
 addons:
-  ssh_known_hosts: ${host_ip} # ip地址
+  ssh_known_hosts: 
+    secure: "xxxxxxxxxxxxxx.............."
 ```
 
-接下来进行加密，按照官方文档来，官方建议对多个文件进行打包以后直接加密（不要逐个加密，据说有bug），在此之前，记得将私钥文件`id_rsa`和刚才创建的脚本文件移动到博客根目录。
+接下来进行文件加密，按照官方文档来，官方建议对多个文件进行打包以后直接加密（不要逐个加密，据说有bug），在此之前，记得将私钥文件`id_rsa`和刚才创建的脚本文件移动到博客根目录。
 
 ```
 travis login --org
@@ -76,7 +90,8 @@ travis encrypt-file secrets.tar
 
 ```
 before_install:
-  - openssl aes-256-cbc -K $encrypted_5880cf525281_key -iv $encrypted_5880cf525281_iv -in secrets.tar.enc -out secrets.tar -d # 这里的encrypted_5880cf525281_key，encrypted_5880cf525281_iv需根据自己情况填写
+  - openssl aes-256-cbc -K $encrypted_5880cf525281_key -iv $encrypted_5880cf525281_iv -in secrets.tar.enc -out secrets.tar -d 
+  # 这里的encrypted_5880cf525281_key，encrypted_5880cf525281_iv需根据自己情况填写
   - tar xvf secrets.tar # 解压
   - chmod +x after_script.sh # 可执行权限
   - mv id_rsa ~/.ssh/id_rsa # 移动到目标文件夹
