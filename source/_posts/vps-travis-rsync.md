@@ -1,5 +1,5 @@
 ---
-title: 使用Travis CI自动部署（VPS篇）
+title: 使用Travis CI自动部署Hexo博客到VPS
 date: 2018.11.05
 tag: [hexo,Travis CI,rsync]
 category: 笔记

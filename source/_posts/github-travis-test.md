@@ -1,5 +1,5 @@
 ---
-title: 使用Travis CI自动部署
+title: 使用Travis CI自动部署Hexo博客到Github Pages
 date: 2017.12.16
 tag: [hexo,Travis CI]
 category: 笔记
