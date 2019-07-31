@@ -10,7 +10,7 @@ cache:
   - node_modules
   - "~/.npm"
 before_install:
-  - openssl aes-256-cbc -K $encrypted_569fccfee36e_key -iv $encrypted_569fccfee36e_iv -in secrets.tar.enc -out secrets.tar -d
+  - openssl aes-256-cbc -K $encrypted_e050b012f849_key -iv $encrypted_e050b012f849_iv -in secrets.tar.enc -out secrets.tar -d
   - tar xvf secrets.tar
   - chmod +x after_install.sh
   - mv id_rsa ~/.ssh/id_rsa
@@ -29,7 +29,7 @@ install:
   - npm install gulp-uglify --save
 addons:
   ssh_known_hosts: 
-    secure: "hTMcmIWI0FC4B/c4bp/ZjMGGkVDnjIO8Z+KsKoA+8bxd3wfSIH7C9lGPQsc8lMRA+qk6BLc6Rg22B5wSTgrQE6TBh+P+MVT2kGn3UEV6AS8g7k+22lmkKbsE/6aPuE8qkoaO1LKIkzWXAKUnAOI07fwloG68gQgBVzthwsbS6njNz1xbqZvU+6wOgJg7DDQMs0ol8lyRDbCsEnx5sOIpgV+wcc5KLzOISFtW0rXi92zo84UV+AMWeyuVLCkL5Fqxxj5DKuWN7BWDTr6k2NmvBS6hopzd5qVvNqDh4MZWVYx2u3L2RgIZUlaF2o3ZFyxk0qv/LOdTp69CFan8cq3v/PuzP7lP89yhFo7s0XOsxnZVyHxt0bNfRJOnnvjx+HLXHRbm1h2G9D98MZLtKlBJBCWkgbJQSX0ccT6QWayqInA/xpKJ4Rc6HkMnQBzBNep8ryouesnAlnyeeHWiqWmTnWLK2F+VqfCVTwMhE+elUb2tatpMq+FJIYo2cWXfuJwek59gxXrGvPsEs+dK98LS2nXBVkFabc4iZVZt2DKfI9SA1IKFchB6vx4tf/yt5Edys5i46KOUX2nyqdnDtVYQcXe7I7akdy01thlYOAbsZfdSDsm+J+jG2QXCg41meXO+KiICGpXLGPji7rGXiKI81HkE4I+GsmdbPNAxbHIVABg="
+    secure: "PGseVN2XofQmx4LSHmCluHgmB8QNEuYS7jq8YGnB4b7eiBERX0U/KuNEdzhsKkL7LyoleLfE8a+UzgHcwk5+fQ/zzkNPxLTvL1rpBKqDqrHJw7pVH+lIuli0iORYv96sAvX6TvT607vDMt7dibVfu0OnOO/tLddIJvfM5+f8kczQgc4khRVrZrIrBC0MdC08DXZsVvi5karhp8CjOfVlnhwhjj3wT7eagRjx2dCL47BCQM+0Q+26ZBrZghTV6B1QVBMOuDvIKXRjjGjY/z59IYTHrTxd7Tpr3JVwVaihv+DYNSm4AWBZbV5rU1GRyKX3jQBLk52TqLgEa8rYGpZH5KEpsr3hDr9UjekjOmddpaidMSEuKAs+mgebd6tcGRe4MDqb0v0Br86MiASeoiX2b88kU2Buk41Ou22M+7Im8cXbqQeyPYiaicMjVU5giHQV7agCs9LxZCFNyUazaM47zkQFMVYhKlHCDq54kophkyrDNBelsopPwaLzNuYd9gDodSbeFyn1fh3/K8PGSt0YP6jNqVR+mvK+uUlSTBxApk7n284TGt3HGpmmIw5v6nLxW3pP648uM+w61Gijsq1GkzhPSb403q+PZ+12Rl57/82lVpDT4tnSNLq/szpNftr/a04B2hD/1PMtlceqYTGsfCwe/j/I4krvS0hmHdh1RKA="
 script:
   - git clone https://github.com/lchord/find.git themes/find
   - hexo clean

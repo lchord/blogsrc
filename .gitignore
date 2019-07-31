@@ -7,3 +7,6 @@ public/
 .deploy*/
 themes/
 package-lock.json
+id_rsa
+secret.tar
+after_install.sh
