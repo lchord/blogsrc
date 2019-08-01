@@ -15,7 +15,7 @@ before_install:
   - chmod +x after_script.sh
   - mv travis-ci-key ~/.ssh/id_rsa
   - chmod 600 ~/.ssh/id_rsa
-  - cp ~/.ssh/known_hosts ~/public/
+  - cp ~/.ssh/known_hosts ./public
   - git config --global user.name 'lchord'
   - git config --global user.email 569187749@qq.com
 install:
