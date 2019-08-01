@@ -13,7 +13,7 @@ before_install:
   - openssl aes-256-cbc -K $encrypted_e050b012f849_key -iv $encrypted_e050b012f849_iv -in secrets.tar.enc -out secrets.tar -d
   - tar xvf secrets.tar
   - chmod +x after_script.sh
-  - mv id_rsa ~/.ssh/id_rsa
+  - mv travis-ci-key ~/.ssh/id_rsa
   - chmod 600 ~/.ssh/id_rsa
   - git config --global user.name 'lchord'
   - git config --global user.email 569187749@qq.com
