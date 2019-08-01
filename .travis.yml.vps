@@ -18,7 +18,6 @@ before_install:
   - git config --global user.name 'lchord'
   - git config --global user.email 569187749@qq.com
 install:
-  - cat pubkey.txt | tee -a ~/.ssh/known_hosts
   - npm install
   - npm install hexo-cli -g
   - npm install hexo-generator-feed --save
@@ -28,6 +27,9 @@ install:
   - npm install gulp-htmlmin --save
   - npm install gulp-clean-css --save
   - npm install gulp-uglify --save
+addons:
+  ssh_known_hosts: 
+    secure: "PGseVN2XofQmx4LSHmCluHgmB8QNEuYS7jq8YGnB4b7eiBERX0U/KuNEdzhsKkL7LyoleLfE8a+UzgHcwk5+fQ/zzkNPxLTvL1rpBKqDqrHJw7pVH+lIuli0iORYv96sAvX6TvT607vDMt7dibVfu0OnOO/tLddIJvfM5+f8kczQgc4khRVrZrIrBC0MdC08DXZsVvi5karhp8CjOfVlnhwhjj3wT7eagRjx2dCL47BCQM+0Q+26ZBrZghTV6B1QVBMOuDvIKXRjjGjY/z59IYTHrTxd7Tpr3JVwVaihv+DYNSm4AWBZbV5rU1GRyKX3jQBLk52TqLgEa8rYGpZH5KEpsr3hDr9UjekjOmddpaidMSEuKAs+mgebd6tcGRe4MDqb0v0Br86MiASeoiX2b88kU2Buk41Ou22M+7Im8cXbqQeyPYiaicMjVU5giHQV7agCs9LxZCFNyUazaM47zkQFMVYhKlHCDq54kophkyrDNBelsopPwaLzNuYd9gDodSbeFyn1fh3/K8PGSt0YP6jNqVR+mvK+uUlSTBxApk7n284TGt3HGpmmIw5v6nLxW3pP648uM+w61Gijsq1GkzhPSb403q+PZ+12Rl57/82lVpDT4tnSNLq/szpNftr/a04B2hD/1PMtlceqYTGsfCwe/j/I4krvS0hmHdh1RKA="
 script:
   - git clone https://github.com/lchord/find.git themes/find
   - hexo clean

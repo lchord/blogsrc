@@ -13,3 +13,4 @@ secrets.tar
 after_install.sh
 after_script.sh
 travis-ci-key
+pubkey.txt
