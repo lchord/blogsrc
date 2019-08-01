@@ -8,5 +8,8 @@ public/
 themes/
 package-lock.json
 id_rsa
-secret.tar
+travis-ci-key
+secrets.tar
 after_install.sh
+after_script.sh
+travis-ci-key
