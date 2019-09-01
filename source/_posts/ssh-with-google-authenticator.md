@@ -50,7 +50,8 @@ ChallengeResponseAuthentication yes
 sudo systemctl restart sshd.service
 ```
 ## 使用
-再次ssh登录时，正确输入密码后会提示输入Verification code，打开手机上的Google Authenticator App，输入6位验证码登录。
+再次ssh登录时，正确输入密码后会提示输入Verification code，打开手机上的Google Authenticator App，输入6位验证码登录。  
+![ssh-with-google-authenticator.png](https://img.lchord.com/images/2019/09/01/ssh-with-google-authenticator.png)
 
 ## 参考
 1. https://github.com/google/google-authenticator-libpam
