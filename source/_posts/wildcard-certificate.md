@@ -4,7 +4,7 @@ date: 2019.9.1
 category: 笔记
 ---
 
-之前一直用的一键脚本签发的证书，有时候不太方便，决定用Certbot签发Let's Encrypt通配符证书。  
+之前一直用的一键脚本签发的证书，有时候不太方便，决定用Certbot签发Let's Encrypt通配符泛域名证书。  
 ## 安装和设置
 [Certbot网站](https://certbot.eff.org/)提供了Web Server和System的选择，进而给出相应的步骤。我的是Nginx和Ubuntu 18.04，首先是安装
 ```
@@ -34,7 +34,7 @@ certbot certonly \
   -d *.example.com \
   -d example.com
 ```
-这里`/path/to/cloudflare.ini`为绝对路径。另外，签发证书的时候带上一级域名，因为通配符证书是给二级域名使用的。运行完毕后，证书的信息和文件路径会给出，只需要对应地填入网站的Nginx文件就可以了。`fullchain.pem`对应`ssl_certificate`，`privkey.pem`对应`ssl_certificate_key`。  
+这里`/path/to/cloudflare.ini`为绝对路径。另外，签发证书的时候最好带上一级域名，避免一级域名不能正常使用。运行完毕后，证书的信息和文件路径会给出，只需要对应地填入网站的Nginx文件就可以了。`fullchain.pem`对应`ssl_certificate`，`privkey.pem`对应`ssl_certificate_key`。  
 ## 使用
 由于VPS还有一些空间，我给自己搭了一个Chevereto图床来解决微博图床的问题。博客站和图床都能正常使用通配符证书。  
 ![wildcard-certificate.png](https://img.lchord.com/images/2019/09/01/wildcard-certificate.png)
