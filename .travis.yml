@@ -17,7 +17,7 @@ before_install:
   - chmod 600 ~/.ssh/id_rsa
   - npm install
 install:
-  - cat trvis-pubkey.txt >> ~/.ssh/known_hosts
+  - cat travis-pubkey.txt >> ~/.ssh/known_hosts
 script:
   - git clone https://github.com/lchord/find.git themes/find
   - hexo clean
