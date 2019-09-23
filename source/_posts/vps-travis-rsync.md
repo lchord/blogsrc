@@ -106,3 +106,6 @@ after_script:
 ```
 
 以上是rsync所需的相关配置，此外还要根据具体情况完成`.travis.yml`的其他内容。
+
+## 更新  
+Travis-CI官方给出了其他添加known hosts的方式，参考[https://docs.travis-ci.com/user/ssh-known-hosts/](https://docs.travis-ci.com/user/ssh-known-hosts/)

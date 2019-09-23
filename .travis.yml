@@ -10,14 +10,14 @@ cache:
   - node_modules
   - "~/.npm"
 before_install:
-  - openssl aes-256-cbc -K $encrypted_e050b012f849_key -iv $encrypted_e050b012f849_iv -in secrets.tar.enc -out secrets.tar -d
+  - openssl aes-256-cbc -K $encrypted_faa615a31f06_key -iv $encrypted_faa615a31f06_iv -in secrets.tar.enc -out secrets.tar -d
   - tar xvf secrets.tar
   - chmod +x after_script.sh
-  - mv travis-ci-key ~/.ssh/id_rsa
+  - mv id_rsa ~/.ssh/
   - chmod 600 ~/.ssh/id_rsa
   - npm install
 install:
-  - cat pubkey.txt | tee -a ~/.ssh/known_hosts
+  - cat trvis-pubkey.txt >> ~/.ssh/known_hosts
 script:
   - git clone https://github.com/lchord/find.git themes/find
   - hexo clean
