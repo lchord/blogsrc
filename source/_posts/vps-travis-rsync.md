@@ -68,7 +68,7 @@ rsync -av --delete -e 'ssh -p ${port}' public/ ${username}@${host_ip}:/path/to/s
 先在本地机器与VPS完成一次ssh登录，然后在本地运行：  
 
 ```
-ssh-keygen -F [198.162.1.1]:22 # 换成自己的VPS的ip地址和ssh端口，带上方括号  
+ssh-keygen -F [192.168.1.1]:22 # 换成自己的VPS的ip地址和ssh端口，带上方括号  
 ```
 
 新建文件`pubkey.txt`，将刚才的输出内容完整复制到文本文件中，另外在第一行行首回车，空出第一行（避免将文件内容进行添加时直接连接到`known_hosts`原有内容的结尾）。  
