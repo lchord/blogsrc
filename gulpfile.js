@@ -28,6 +28,4 @@ gulp.task('minify-js', function() {
   .pipe(gulp.dest('./public'));
 });
 // 默认任务
-gulp.task('default', [
-  'minify-html','minify-css','minify-js'
-]);
+gulp.task('default',gulp.series(gulp.parallel('minify-html','minify-css','minify-js')));
