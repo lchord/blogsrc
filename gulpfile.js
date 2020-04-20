@@ -22,10 +22,10 @@ gulp.task('minify-html', function() {
   .pipe(gulp.dest('./public'))
 });
 // 压缩js文件
-gulp.task('minify-js', function() {
-  return gulp.src('./public/**/*.js')
-  .pipe(uglify())
-  .pipe(gulp.dest('./public'));
-});
+// gulp.task('minify-js', function() {
+//   return gulp.src('./public/**/*.js')
+//   .pipe(uglify())
+//   .pipe(gulp.dest('./public'));
+// });
 // 默认任务
-gulp.task('default',gulp.series(gulp.parallel('minify-html','minify-css','minify-js')));
+gulp.task('default',gulp.series(gulp.parallel('minify-html','minify-css')));
