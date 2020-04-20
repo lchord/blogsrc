@@ -38,11 +38,18 @@ post_asset_folder: false
 relative_link: false
 future: true
 highlight:
-  enable: true
+  enable: false
   line_number: false
   auto_detect: false
   tab_replace:
-  
+
+# Highlight
+prism_plugin:
+  mode: 'preprocess'    # realtime/preprocess
+  theme: 'material-oceanic'
+  line_number: true    # default false
+  custom_css:      # optional
+
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)
@@ -72,7 +79,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: find
+theme: hexo-theme-journal
 sitemap:
   path: sitemap.xml
   

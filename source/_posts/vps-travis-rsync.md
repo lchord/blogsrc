@@ -20,20 +20,20 @@ category: 笔记
 
 我使用的是Ubuntu 18.04，由于新安装不久，下载解压压缩包后，使用`ruby setup.rb`安装RubyGems时会报错，一般是缺少build-essential造成的，需要运行：
 
-```
+```bash
 sudo apt install ruby ruby-dev # 如果没有安装Ruby，需要先运行这一步
 sudo apt install build-essential # 如缺少，安装travis也可能报错
 ```
 
 来到下载的RubyGems的源码目录，运行：
 
-```
+```bash
 sudo ruby setup.rb
 ```
 
 接着运行：
 
-```
+```bash
 sudo gem install travis
 ```
 
@@ -41,7 +41,7 @@ sudo gem install travis
 
 rsync使用ssh方式，所以要准备一对私钥和公钥。直接运行：  
 
-```
+```bash
 ssh-keygen
 ```
 
@@ -53,7 +53,7 @@ ssh-keygen
 
 脚本内容：  
 
-```
+```sh
 #!/bin/sh
 # 使用rsync将public文件夹内的文件同步到VPS上网站的根目录，并在Travis构建过程中显示文件详情。
 # ${port}替换为ssh端口，${username}替换为指定用户名，
@@ -67,7 +67,7 @@ rsync -av --delete -e 'ssh -p ${port}' public/ ${username}@${host_ip}:/path/to/s
 
 先在本地机器与VPS完成一次ssh登录，然后在本地运行：  
 
-```
+```bash
 ssh-keygen -F [192.168.1.1]:22 # 换成自己的VPS的ip地址和ssh端口，带上方括号  
 ```
 
@@ -75,7 +75,7 @@ ssh-keygen -F [192.168.1.1]:22 # 换成自己的VPS的ip地址和ssh端口，带
 
 经过以上步骤，得到了三个文件(私钥、脚本、pubkey.txt)，将他们移动的统一目录下，打包：    
 
-```
+```bash
 tar cvf secrets.tar id_rsa after_script.sh pubkey.txt
 ```
 
@@ -85,14 +85,14 @@ tar cvf secrets.tar id_rsa after_script.sh pubkey.txt
 
 官方建议对多个文件进行打包以后直接加密（逐个加密可能产生bug），所以这里直接对`secrets.tar`进行加密。需要注意的是，`travis login --org`中的选项可为`--org`或`--com`，这里取决于仓库位于travis-ci.org或是travis-ci.com，不能混淆。  
 
-```
+```bash
 travis login --org
 travis encrypt-file secrets.tar
 ```
 
 加密完成后，删除未加密的`secrets.tar`以避免提交，另外travis会在加密完成的输出信息里提供解密信息，可能需要手动加入到`.travis.yml`中，解密、解压和其他配置内容如下：  
 
-```
+```bash
 ...
 ...
 before_install:

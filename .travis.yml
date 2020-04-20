@@ -19,7 +19,7 @@ before_install:
 install:
   - npm install
 script:
-  - git clone https://github.com/lchord/find.git themes/find
+  - git clone https://{$THEME_STRING}@github.com/lchord/hexo-theme-journal.git themes/hexo-theme-journal
   - hexo clean
   - hexo g
   - gulp

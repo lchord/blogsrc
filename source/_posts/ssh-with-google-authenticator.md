@@ -9,12 +9,12 @@ tag: [ssh,2fa]
 ## 安装和设置
 
 服务器系统是ubuntu，安装很方便：  
-```
+```bash
 sudo apt update
 sudo apt install libpam-google-authenticator
 ```
 这一过程一般会一同安装libqrencode。安装完成后切换到希望设置两步验证的用户，运行：  
-```
+```bash
 google-authenticator
 ```
 之后会有几次选择，根据需求选择yes or no。  
