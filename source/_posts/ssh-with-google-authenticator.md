@@ -18,7 +18,7 @@ sudo apt install libpam-google-authenticator
 google-authenticator
 ```
 之后会有几次选择，根据需求选择yes or no。  
-```
+```bash
 Do you want authentication tokens to be time-based (y/n) y
 
 Do you want me to update your "~/.google_authenticator" file (y/n) y
@@ -30,23 +30,23 @@ Do you want me to update your "~/.google_authenticator" file (y/n) y
 ## 设置ssh
 
 接着还要对ssh进行设置：  
-```
+```bash
 sudo vim /etc/pam.d/sshd
 ```
 在最后添加：  
-```
+```bash
 auth required pam_google_authenticator.so nullok
 ```
 选项nullok表示允许未设置google-authenticator的用户正常登录，建议带上，防止无法登录。等所需用户都设置成功以后可以删除。  
-```
+```bash
 sudo vim /etc/ssh/sshd_config
 ```
 找到`ChallengeResponseAuthentication`一行，修改如下：  
-```
+```bash
 ChallengeResponseAuthentication yes
 ```
 最后重启ssh服务：  
-```
+```bash
 sudo systemctl restart sshd.service
 ```
 ## 使用
