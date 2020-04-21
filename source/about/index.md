@@ -5,6 +5,9 @@ date: 2017-12-17 13:53:17
 ---
 
 ## 关于我
+
+<p><img src="https://img.lchord.com/images/2020/04/21/-.png" alt="-.png" border="0" width="64" height="64"/></p>  
+
 - 理科生
 - 学习COMSOL
 - 学习英语&日语
