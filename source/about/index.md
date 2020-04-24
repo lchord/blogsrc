@@ -1,7 +1,9 @@
 ---
 title: 关于
 subtitle: 这里的二三事
+intro: 这里的二三事
 date: 2017-12-17 13:53:17
+featured_image: https://img.lchord.com/images/2020/04/24/hd-img.jpg
 ---
 
 ## 关于我
