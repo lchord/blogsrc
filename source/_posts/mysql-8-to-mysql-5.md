@@ -1,5 +1,5 @@
 ---
-title: MySQL8.0备份导入MySQL5.6
+title: MySQL8.0备份导入MySQL5.6遇到的问题
 date: 2020-04-24 11:04:48
 tags: mysql
 category: 笔记
