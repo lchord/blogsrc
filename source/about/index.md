@@ -19,3 +19,5 @@ featured_image: https://img.lchord.com/images/2020/04/24/hd-img.jpg
 - 转了一圈又回到Hexo，通过Travis-CI自动部署到VPS上
 - 博客主要用作记录学习和日常
 - NS目前用的是Cloudflare云减速  
+
+<script type="text/javascript" src="http://www.douban.com/service/badge/memoz/?selection=latest&amp;picsize=small&amp;hideself=on&amp;show=collection&amp;n=16&amp;hidelogo=on&amp;cat=movie&amp;columns=8"></script></div>
