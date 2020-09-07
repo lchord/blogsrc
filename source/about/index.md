@@ -10,8 +10,8 @@ featured_image: https://img.lchord.com/images/2020/04/24/hd-img.jpg
 ## 关于我
 
 - 理科生
-- 学习COMSOL
-- 学习英语&日语
+- 学习 FDTD & COMSOL 中
+- 学习 英语 & 日语 中
 - ~~脱宅中~~
 
 ## 关于博客
