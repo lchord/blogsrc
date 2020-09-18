@@ -15,7 +15,7 @@ before_install:
   - chmod +x after_script.sh
   - mv id_rsa ~/.ssh/
   - chmod 600 ~/.ssh/id_rsa
-  - cat travis-pubkey.txt >> ~/.ssh/known_hosts
+  - cat pubkey.txt >> ~/.ssh/known_hosts
 install:
   - npm install
 script:
